@@ -1,20 +1,24 @@
 #include<stdio.h>
-void inst_sort(int[]);
-void main()
-{
-int num[5],count;
-printf("\n enter the five element to sort:\n");
-for(count=0;count<5;count++)
-scanf("%d",&num[count]);
-inst_sort(num);
-printf("\n\n elements after sorting :\n");
-printf("%d\n",num[count]);
+int linearsearch(int arr[],int n,int key){
+for(int i =0; i<n;++i){
+if(arr[i]==key){
+return i;
 }
-void inst_sort(int num[])
-{
-int i,j,k;
-for(j=1;j<5;j++){k=num[j];
-for(i=j-1;i>=0&&k<num[i];i--)
-num[i+1]=num[i];
-num[i+1]=k;
-}}
+}
+return -1;
+}
+int main(){
+int arr[]={12,45,67,23,56,89,9,43};
+int n=sizeof(arr)/sizeof(arr[0]);
+int key,index;
+printf("enter the element to search:");
+scanf("%d",&key);
+index=linearsearch(arr,n,key);
+if(index!=-1){
+printf("element %d found at position %d.\n",key,index+1);
+}
+else{
+printf("element %d not found in  the array.\n",key);
+}
+return 0;
+}
